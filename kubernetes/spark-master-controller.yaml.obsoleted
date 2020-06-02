@@ -15,7 +15,7 @@ spec:
       subdomain: spark-master-headless
       containers:
         - name: spark-master
-          image: mydockerrepo/spark:2.4.4
+          image: stanleywxc/spark:2.4.4
           imagePullPolicy: Always
           command: ["/start-master"]
           ports:

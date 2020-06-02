@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: spark-worker
-          image: mydockerrepo/spark:2.4.4
+          image: stanleywxc/spark:2.4.4
           imagePullPolicy: Always
           command: ["/start-worker"]
           ports:

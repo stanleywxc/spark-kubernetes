@@ -34,4 +34,5 @@ RUN curl https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-s3/1.11.712/a
 ADD start-common.sh start-worker start-master /
 ADD core-site.xml /opt/spark/conf/core-site.xml
 ADD spark-defaults.conf /opt/spark/conf/spark-defaults.conf
+ADD spark-env.sh /opt/spark/conf/spark-env.sh
 ENV PATH $PATH:/opt/spark/bin
