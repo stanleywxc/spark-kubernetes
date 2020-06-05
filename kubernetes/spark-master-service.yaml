@@ -12,3 +12,15 @@ spec:
       targetPort: 7077
   selector:
     component: spark-master
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-master-headless
+spec:
+  ports:
+  clusterIP: None
+  selector:
+    component: spark-master

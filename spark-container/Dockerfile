@@ -2,11 +2,11 @@ FROM openjdk:8-jdk-alpine
 
 RUN apk add --no-cache curl tar bash procps
 
-ENV hadoop_ver 3.2.1
-ENV spark_ver 2.4.5
-ENV aws_sdk_ver 1.11.792
-ENV scala_ver 2.11.12
-ENV maven_repo https://repo1.maven.org/maven2
+ARG hadoop_ver=3.2.1
+ARG spark_ver=2.4.5
+ARG aws_sdk_ver=1.11.792
+ARG scala_ver=2.11.12
+ARG maven_repo=https://repo1.maven.org/maven2
 
 
 RUN mkdir -p /opt && \
@@ -52,7 +52,6 @@ RUN curl ${maven_repo}/com/amazonaws/aws-java-sdk-dynamodb/${aws_sdk_ver}/aws-ja
 
 RUN curl ${maven_repo}/org/slf4j/slf4j-api/1.7.29/slf4j-api-1.7.29.jar -o /opt/spark/jars/slf4j-api-1.7.29.jar
 RUN curl ${maven_repo}/org/slf4j/slf4j-log4j12/1.7.29/slf4j-log4j12-1.7.29.jar -o /opt/spark/jars/slf4j-log4j12-1.7.29.jar
-
 
 ADD start-common.sh start-worker start-master /
 ADD core-site.xml /opt/spark/conf/core-site.xml

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spark-worker
-          image: stanleywxc/spark:2.4.5
+          image: stanleywxc/spark:2.4.5-kube
           command: ["/start-worker"]
           ports:
             - containerPort: 8081
