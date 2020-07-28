@@ -1,13 +1,12 @@
 FROM openjdk:8-jdk-alpine
 
-RUN apk add --no-cache curl tar bash procps
+RUN apk add --no-cache curl tar bash procps python
 
 ARG hadoop_ver=3.2.1
 ARG spark_ver=2.4.5
 ARG aws_sdk_ver=1.11.792
 ARG scala_ver=2.11.12
 ARG maven_repo=https://repo1.maven.org/maven2
-
 
 RUN mkdir -p /opt && \
     cd /opt && \
@@ -25,7 +24,7 @@ RUN mkdir -p /opt && \
 
 RUN mkdir -p /opt && \
     cd /opt && \
-    curl http://apache.mirrors.hoobly.com/spark/spark-${spark_ver}/spark-${spark_ver}-bin-without-hadoop.tgz | \
+    curl https://archive.apache.org/dist/spark/spark-${spark_ver}/spark-${spark_ver}-bin-without-hadoop.tgz | \
         tar -zx && \
     ln -s spark-${spark_ver}-bin-without-hadoop spark && \
     echo Spark ${spark_ver} installed in /opt
